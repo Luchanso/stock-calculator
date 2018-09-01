@@ -1,0 +1,15 @@
+{
+  "name": "stock-calculator",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:Luchanso/stock-calculator.git",
+  "author": "Luchanskiy Oleg <luchansodev@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "yahoo-finance": "^0.3.5"
+  }
+}
