@@ -18,9 +18,22 @@ const start = async () => {
 
     for (const symbol of values) {
         const { price, summaryDetail, defaultKeyStatistics } = symbol;
+        const { symbol: symbolKey } = price;
+
+        if (
+            !defaultKeyStatistics ||
+            !summaryDetail ||
+            !price ||
+            !defaultKeyStatistics.profitMargins ||
+            !summaryDetail.trailingPE ||
+            !defaultKeyStatistics.profitMargins
+        ) {
+            console.log(`symbol = ${symbolKey} N/A`);
+            continue;
+        }
+
         const margin = (defaultKeyStatistics.profitMargins * 100).toFixed(3);
         const PE = summaryDetail.trailingPE.toFixed(3);
-        const { symbol: symbolKey } = price;
         const PEMargin = ((1 / summaryDetail.trailingPE) * defaultKeyStatistics.profitMargins).toFixed(3);
 
         console.log(`symbol = ${symbolKey}, margin = ${margin}, P/E = ${PE}, (1 / (P/E)) * margin = ${PEMargin}`);
